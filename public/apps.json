@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "scrollsavior",
+      "name": "ScrollSavior",
+      "active": true,
+      "tagline": {
+        "fr": "Vidéos coupées, applis intactes.",
+        "en": "Videos off. Apps on.",
+        "es": "Vídeos fuera. Apps intactas."
+      },
+      "description": {
+        "fr": "Masque les vidéos d'Instagram, TikTok, Facebook et YouTube. Messages, publications et recherche continuent de marcher.",
+        "en": "Hides the videos in Instagram, TikTok, Facebook and YouTube. Messages, posts and search keep working.",
+        "es": "Oculta los vídeos de Instagram, TikTok, Facebook y YouTube. Mensajes, publicaciones y búsqueda siguen funcionando."
+      },
+      "icon": "https://cocosdnc.github.io/neocode-apps/icons/scrollsavior.png",
+      "color": "#5B45F0",
+      "website": "https://www.scrollsavior.com",
+      "scheme": "scrollsavior://",
+      "android": {
+        "package": "com.neocodeconsulting.scrollsavior",
+        "storeUrl": ""
+      },
+      "ios": {
+        "bundleId": "com.neocodeconsulting.scrollsavior",
+        "storeUrl": ""
+      }
+    },
+    {
+      "id": "funnyalarm",
+      "name": "FunnyAlarm",
+      "active": true,
+      "tagline": {
+        "fr": "Le réveil qui ne s'arrête pas avant ton cerveau.",
+        "en": "The alarm that won't stop until your brain is on.",
+        "es": "La alarma que no para hasta que tu cerebro despierte."
+      },
+      "description": {
+        "fr": "Calcul, code-barres à scanner ou mots à dire dans une langue pour couper l'alarme, puis radio ou culture du matin.",
+        "en": "Solve math, scan a barcode or say words in another language to stop it, then start the day with radio or culture.",
+        "es": "Resuelve cálculos, escanea un código de barras o di palabras en otro idioma para apagarla, y luego radio o cultura."
+      },
+      "icon": "https://cocosdnc.github.io/neocode-apps/icons/funnyalarm.png",
+      "color": "#1B1446",
+      "website": "https://funnyalarm.com",
+      "scheme": "funnyalarm://",
+      "android": {
+        "package": "com.neocodeconsulting.funnyalarm",
+        "storeUrl": ""
+      },
+      "ios": {
+        "bundleId": "com.funnyalarm.app",
+        "storeUrl": ""
+      }
+    }
+  ]
+}

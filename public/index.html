@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nos apps · NeoCode</title>
+<style>
+  :root { --bg: #07070C; --card: #12121B; --text: #F2F2F7; --muted: #9A9AB0; --line: #23233A; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  p.lead { color: var(--muted); margin: 0 0 32px; }
+  .app { display: flex; gap: 16px; align-items: center; padding: 16px; margin-bottom: 12px;
+         background: var(--card); border: 1px solid var(--line); border-radius: 16px; color: inherit; text-decoration: none; }
+  .app:hover { border-color: var(--muted); }
+  .app img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
+  .app strong { display: block; font-size: 18px; }
+  .app span { color: var(--muted); font-size: 14px; }
+  footer { margin-top: 32px; color: var(--muted); font-size: 13px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Nos apps</h1>
+  <p class="lead">Des applis simples pour mieux utiliser son téléphone.</p>
+  <div id="list"></div>
+  <footer>Données : <a href="apps.json">apps.json</a></footer>
+</main>
+<script>
+  const lang = (navigator.language || 'en').slice(0, 2);
+  const pick = (t) => (t && (t[lang] || t.en)) || '';
+  fetch('apps.json', { cache: 'no-cache' })
+    .then((r) => r.json())
+    .then(({ apps }) => {
+      const list = document.getElementById('list');
+      for (const app of apps.filter((a) => a.active)) {
+        const a = document.createElement('a');
+        a.className = 'app';
+        a.href = app.website;
+        const img = document.createElement('img');
+        img.src = app.icon; img.alt = '';
+        const text = document.createElement('div');
+        const name = document.createElement('strong');
+        name.textContent = app.name;
+        const tagline = document.createElement('span');
+        tagline.textContent = pick(app.tagline);
+        text.append(name, tagline);
+        a.append(img, text);
+        list.append(a);
+      }
+    });
+</script>
+</body>
+</html>
