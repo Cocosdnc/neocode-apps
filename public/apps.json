@@ -6,9 +6,9 @@
       "name": "ScrollSavior",
       "active": true,
       "tagline": {
-        "fr": "Vidéos coupées, applis intactes.",
-        "en": "Videos off. Apps on.",
-        "es": "Vídeos fuera. Apps intactas."
+"fr": "TikTok, Instagram. Sans le scroll.",
+"en": "TikTok & Instagram. Zero scrolling.",
+"es": "TikTok e Instagram. Cero scroll."
       },
       "description": {
         "fr": "Masque les vidéos d'Instagram, TikTok, Facebook et YouTube. Messages, publications et recherche continuent de marcher.",
@@ -33,9 +33,9 @@
       "name": "FunnyAlarm",
       "active": true,
       "tagline": {
-        "fr": "Le réveil qui ne s'arrête pas avant ton cerveau.",
-        "en": "The alarm that won't stop until your brain is on.",
-        "es": "La alarma que no para hasta que tu cerebro despierte."
+"fr": "Réveillez-vous enfin en pleine forme.",
+"en": "Finally, wake up fully refreshed.",
+"es": "Por fin, despierta lleno de energía."
       },
       "description": {
         "fr": "Calcul, code-barres à scanner ou mots à dire dans une langue pour couper l'alarme, puis radio ou culture du matin.",
