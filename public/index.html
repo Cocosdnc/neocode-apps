@@ -19,14 +19,61 @@
   .app span { color: var(--muted); font-size: 14px; }
   footer { margin-top: 32px; color: var(--muted); font-size: 13px; }
   footer a { color: inherit; }
+  footer p { margin: 0 0 6px; }
+  footer ul { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 18px; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://neocode-consulting.nc/#organization",
+      "name": "NEOCODE-CONSULTING",
+      "url": "https://neocode-consulting.nc/",
+      "email": "contact@neocode-consulting.nc",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bâtiment Carcopino 3000, Avenue du Général de Gaulle",
+        "postalCode": "98800",
+        "addressLocality": "Nouméa",
+        "addressCountry": "NC"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cocosdnc.github.io/neocode-apps/#page",
+      "url": "https://cocosdnc.github.io/neocode-apps/",
+      "name": "Nos apps · NeoCode",
+      "inLanguage": "fr",
+      "publisher": { "@id": "https://neocode-consulting.nc/#organization" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <main>
   <h1>Nos apps</h1>
   <p class="lead">Des applis simples pour mieux utiliser son téléphone.</p>
   <div id="list"></div>
-  <footer>Données : <a href="apps.json">apps.json</a></footer>
+  <footer>
+    <nav aria-label="Projets NeoCode Consulting">
+      <p><a href="https://neocode-consulting.nc/">Un projet NeoCode Consulting, Nouméa</a></p>
+      <ul>
+        <li>Nos autres projets :</li>
+        <li><a href="https://neocode-consulting.nc/">NeoCode Consulting</a>, agence digitale à Nouméa</li>
+        <li><a href="https://www.facturecomptabilite.com/">Facture Comptabilité</a>, logiciel de devis, facturation et comptabilité</li>
+        <li><a href="https://www.funnyalarm.com/">FunnyAlarm</a>, réveil Android à défis</li>
+        <li><a href="https://www.scrollsavior.com/">ScrollSavior</a>, appli anti-scroll (Reels, TikTok, Shorts)</li>
+        <li><a href="https://www.sendsmsforfree.com/">SendSMSforFree</a>, envoyer des SMS depuis le PC</li>
+        <li><a href="https://www.passatable.nc/">Pass à Table</a></li>
+        <li><a href="https://www.patrium-invest.com/">Patrium Invest</a></li>
+        <li><a href="https://ai-chat-bot-livid.vercel.app/">SigmaTrader</a>, simulation et analyse DCA</li>
+      </ul>
+    </nav>
+    <p>Données : <a href="apps.json">apps.json</a></p>
+  </footer>
 </main>
 <script>
   const lang = (navigator.language || 'en').slice(0, 2);
