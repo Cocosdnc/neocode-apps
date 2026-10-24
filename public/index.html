@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nos apps · NeoCode</title>
+<meta name="description" content="Les applis mobiles de NeoCode Consulting, à Nouméa : ScrollSavior, pour bloquer les Reels, TikTok et les Shorts sans bloquer les messages, et FunnyAlarm, le réveil Android à défis.">
+<link rel="canonical" href="https://cocosdnc.github.io/neocode-apps/">
 <style>
   :root { --bg: #07070C; --card: #12121B; --text: #F2F2F7; --muted: #9A9AB0; --line: #23233A; }
   * { box-sizing: border-box; }
@@ -16,7 +18,7 @@
   .app:hover { border-color: var(--muted); }
   .app img { width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0; }
   .app strong { display: block; font-size: 18px; }
-  .app span { color: var(--muted); font-size: 14px; }
+  .app span { display: block; color: var(--muted); font-size: 14px; }
   footer { margin-top: 32px; color: var(--muted); font-size: 13px; }
   footer a { color: inherit; }
   footer p { margin: 0 0 6px; }
@@ -34,7 +36,7 @@
       "email": "contact@neocode-consulting.nc",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Bâtiment Carcopino 3000, Avenue du Général de Gaulle",
+        "streetAddress": "Bâtiment Carcopino 3000, 85 avenue du Général de Gaulle",
         "postalCode": "98800",
         "addressLocality": "Nouméa",
         "addressCountry": "NC"
@@ -56,7 +58,11 @@
 <main>
   <h1>Nos apps</h1>
   <p class="lead">Des applis simples pour mieux utiliser son téléphone.</p>
-  <div id="list"></div>
+  <!-- Liste lisible sans JavaScript (moteurs de recherche) : à garder en phase avec apps.json, que le script ci-dessous relit. -->
+  <div id="list">
+    <a class="app" href="https://www.scrollsavior.com/"><img src="icons/scrollsavior.png" alt="" width="64" height="64"><div><strong>ScrollSavior</strong><span>TikTok, Instagram. Sans le scroll.</span><span>Masque les vidéos d'Instagram, TikTok, Facebook et YouTube. Messages, publications et recherche continuent de marcher.</span></div></a>
+    <a class="app" href="https://www.funnyalarm.com/"><img src="icons/funnyalarm.png" alt="" width="64" height="64"><div><strong>FunnyAlarm</strong><span>Réveillez-vous enfin en pleine forme.</span><span>Calcul, code-barres à scanner ou mots à dire dans une langue pour couper l'alarme, puis radio ou culture du matin.</span></div></a>
+  </div>
   <footer>
     <nav aria-label="Projets NeoCode Consulting">
       <p><a href="https://neocode-consulting.nc/">Un projet NeoCode Consulting, Nouméa</a></p>
@@ -69,35 +75,41 @@
         <li><a href="https://www.sendsmsforfree.com/">SendSMSforFree</a>, envoyer des SMS depuis le PC</li>
         <li><a href="https://www.passatable.nc/">Pass à Table</a></li>
         <li><a href="https://www.patrium-invest.com/">Patrium Invest</a></li>
-        <li><a href="https://ai-chat-bot-livid.vercel.app/">SigmaTrader</a>, simulation et analyse DCA</li>
+        <li><a href="https://ai-chat-bot-livid.vercel.app/">SigmaTrader</a>, logiciel de simulation et d’exécution d’ordres</li>
+        <li><a href="https://big-brother-nine.vercel.app/">Big Brother</a>, modération IA des commentaires Facebook et Instagram</li>
       </ul>
     </nav>
     <p>Données : <a href="apps.json">apps.json</a></p>
   </footer>
 </main>
 <script>
-  const lang = (navigator.language || 'en').slice(0, 2);
+  const lang = document.documentElement.lang || 'fr';
   const pick = (t) => (t && (t[lang] || t.en)) || '';
   fetch('apps.json', { cache: 'no-cache' })
     .then((r) => r.json())
     .then(({ apps }) => {
       const list = document.getElementById('list');
+      const cards = [];
       for (const app of apps.filter((a) => a.active)) {
         const a = document.createElement('a');
         a.className = 'app';
         a.href = app.website;
         const img = document.createElement('img');
-        img.src = app.icon; img.alt = '';
+        img.src = app.icon; img.alt = ''; img.width = 64; img.height = 64;
         const text = document.createElement('div');
         const name = document.createElement('strong');
         name.textContent = app.name;
         const tagline = document.createElement('span');
         tagline.textContent = pick(app.tagline);
-        text.append(name, tagline);
+        const description = document.createElement('span');
+        description.textContent = pick(app.description);
+        text.append(name, tagline, description);
         a.append(img, text);
-        list.append(a);
+        cards.push(a);
       }
-    });
+      if (cards.length) list.replaceChildren(...cards);
+    })
+    .catch(() => {}); // apps.json unreachable: the static list stays.
 </script>
 </body>
 </html>

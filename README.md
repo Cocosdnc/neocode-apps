@@ -27,7 +27,8 @@ et les téléphones gardent la dernière version valide.
 | `scheme` | lien profond (`monapp://`) pour ouvrir l'appli si elle est déjà installée |
 | `android.storeUrl` / `ios.storeUrl` | lien Play Store / App Store. Laisser `""` tant que l'appli n'y est pas |
 
-3. Commit + push (ou modifier directement le fichier sur github.com, bouton ✏️). C'est tout :
+3. Ajouter aussi sa carte dans la liste statique de `public/index.html` (lisible sans JavaScript, pour les moteurs de recherche ; le script la remplace ensuite par le contenu de `apps.json`).
+4. Commit + push (ou modifier directement le fichier sur github.com, bouton ✏️). C'est tout :
 les applis déjà installées verront la nouvelle au prochain rafraîchissement, sans mise à jour.
 
 ## Vérifier en local
