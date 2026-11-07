@@ -53,4 +53,4 @@ Elle lit `https://monitor.146-59-230-206.sslip.io/metrics.json`, écrit toutes l
 ([`vps/monitor.caddy`](vps/monitor.caddy)). Un nouveau projet docker compose apparaît tout seul ; son adresse
 est retrouvée dans `/etc/caddy/sites/`.
 
-Installer ou mettre à jour le collecteur : `vps/install.sh` (demande le mot de passe sudo pour Caddy).
+Installer ou mettre à jour le collecteur : `vps/install.sh` (sans sudo : passe par Docker pour le fichier Caddy).
