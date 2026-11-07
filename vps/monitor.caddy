@@ -1,0 +1,12 @@
+# Métriques du VPS (fichier statique écrit par /srv/monitor/collect.py), lues par la page
+# https://cocosdnc.github.io/neocode-apps/vps.html. À copier dans /etc/caddy/sites/.
+monitor.146-59-230-206.sslip.io {
+	encode gzip
+	root * /srv/monitor/public
+	header {
+		Access-Control-Allow-Origin "*"
+		Cache-Control "no-cache"
+		X-Robots-Tag "noindex"
+	}
+	file_server
+}

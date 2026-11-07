@@ -41,3 +41,16 @@ node scripts/validate.mjs
 
 Donner à Claude, dans le dossier de l'appli, le texte de [`PROMPT_CLAUDE.md`](PROMPT_CLAUDE.md)
 en remplaçant `<ID_DE_L_APPLI>` par son `id`.
+
+## Page VPS
+
+[`public/vps.html`](public/vps.html) (https://cocosdnc.github.io/neocode-apps/vps.html) montre le VPS partagé
+(`ssh vps`, 146.59.230.206) : projets hébergés, conteneurs, et courbes CPU / mémoire / stockage / swap,
+au total et par projet (48 h point par point, 90 jours en moyennes horaires).
+
+Elle lit `https://monitor.146-59-230-206.sslip.io/metrics.json`, écrit toutes les 5 minutes par
+[`vps/collect.py`](vps/collect.py) (cron d'`ubuntu`, sans dépendance) et servi par le Caddy de l'hôte
+([`vps/monitor.caddy`](vps/monitor.caddy)). Un nouveau projet docker compose apparaît tout seul ; son adresse
+est retrouvée dans `/etc/caddy/sites/`.
+
+Installer ou mettre à jour le collecteur : `vps/install.sh` (demande le mot de passe sudo pour Caddy).

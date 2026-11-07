@@ -11,6 +11,9 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
   main { max-width: 720px; margin: 0 auto; padding: 48px 16px; }
+  .tabs { display: flex; gap: 4px; margin: 0 0 32px; padding: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; width: fit-content; }
+  .tabs a { padding: 6px 16px; border-radius: 8px; text-decoration: none; color: var(--muted); font-weight: 600; font-size: 15px; }
+  .tabs a[aria-current] { background: var(--line); color: var(--text); }
   h1 { font-size: 28px; margin: 0 0 4px; }
   p.lead { color: var(--muted); margin: 0 0 32px; }
   .app { display: flex; gap: 16px; align-items: center; padding: 16px; margin-bottom: 12px;
@@ -56,6 +59,10 @@
 </head>
 <body>
 <main>
+  <nav class="tabs" aria-label="Sections">
+    <a href="./" aria-current="page">Nos apps</a>
+    <a href="vps.html">VPS</a>
+  </nav>
   <h1>Nos apps</h1>
   <p class="lead">Des applis simples pour mieux utiliser son téléphone.</p>
   <!-- Liste lisible sans JavaScript (moteurs de recherche) : à garder en phase avec apps.json, que le script ci-dessous relit. -->
