@@ -40,6 +40,8 @@ for (const [i, app] of (data.apps ?? []).entries()) {
     const url = app[os]?.storeUrl;
     if (url && !isHttps(url)) errors.push(`${at}: ${os}.storeUrl doit être vide ou une URL https`);
   }
+  const apk = app.android?.apkUrl;
+  if (apk && !(isHttps(apk) && apk.endsWith('.apk'))) errors.push(`${at}: android.apkUrl doit être vide ou une URL https vers un .apk`);
 }
 
 if (errors.length) {

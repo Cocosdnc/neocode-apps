@@ -6,9 +6,9 @@
       "name": "ScrollSavior",
       "active": true,
       "tagline": {
-"fr": "TikTok, Instagram. Sans le scroll.",
-"en": "TikTok & Instagram. Zero scrolling.",
-"es": "TikTok e Instagram. Cero scroll."
+        "fr": "TikTok, Instagram. Sans le scroll.",
+        "en": "TikTok & Instagram. Zero scrolling.",
+        "es": "TikTok e Instagram. Cero scroll."
       },
       "description": {
         "fr": "Masque les vidéos d'Instagram, TikTok, Facebook et YouTube. Messages, publications et recherche continuent de marcher.",
@@ -21,7 +21,8 @@
       "scheme": "scrollsavior://",
       "android": {
         "package": "com.neocodeconsulting.scrollsavior",
-        "storeUrl": ""
+        "storeUrl": "",
+        "apkUrl": "https://github.com/Cocosdnc/neocode-apps/releases/download/scrollsavior/ScrollSavior.apk"
       },
       "ios": {
         "bundleId": "com.neocodeconsulting.scrollsavior",
@@ -33,9 +34,9 @@
       "name": "FunnyAlarm",
       "active": true,
       "tagline": {
-"fr": "Réveillez-vous enfin en pleine forme.",
-"en": "Finally, wake up fully refreshed.",
-"es": "Por fin, despierta lleno de energía."
+        "fr": "Réveillez-vous enfin en pleine forme.",
+        "en": "Finally, wake up fully refreshed.",
+        "es": "Por fin, despierta lleno de energía."
       },
       "description": {
         "fr": "Calcul, code-barres à scanner ou mots à dire dans une langue pour couper l'alarme, puis radio ou culture du matin.",
@@ -48,10 +49,39 @@
       "scheme": "funnyalarm://",
       "android": {
         "package": "com.neocodeconsulting.funnyalarm",
-        "storeUrl": ""
+        "storeUrl": "",
+        "apkUrl": "https://github.com/Cocosdnc/neocode-apps/releases/download/funnyalarm/FunnyAlarm.apk"
       },
       "ios": {
         "bundleId": "com.funnyalarm.app",
+        "storeUrl": ""
+      }
+    },
+    {
+      "id": "sillon",
+      "name": "Sillon",
+      "active": true,
+      "tagline": {
+        "fr": "Votre musique, en beauté.",
+        "en": "Your music, beautifully played.",
+        "es": "Tu música, con estilo."
+      },
+      "description": {
+        "fr": "Lecteur de musique hors ligne : forme d'onde, boucle A-B, égaliseur graves et aigus, playlists à réordonner et recherche instantanée.",
+        "en": "Offline music player: waveform, A-B loop, bass and treble equaliser, reorderable playlists and instant search.",
+        "es": "Reproductor de música sin conexión: forma de onda, bucle A-B, ecualizador de graves y agudos, listas reordenables y búsqueda instantánea."
+      },
+      "icon": "https://cocosdnc.github.io/neocode-apps/icons/sillon.png",
+      "color": "#1B1438",
+      "website": "https://cocosdnc.github.io/neocode-apps/#sillon",
+      "scheme": "",
+      "android": {
+        "package": "nc.sillon",
+        "storeUrl": "",
+        "apkUrl": "https://github.com/Cocosdnc/neocode-apps/releases/download/sillon/Sillon.apk"
+      },
+      "ios": {
+        "bundleId": "",
         "storeUrl": ""
       }
     }

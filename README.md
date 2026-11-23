@@ -31,6 +31,35 @@ et les téléphones gardent la dernière version valide.
 4. Commit + push (ou modifier directement le fichier sur github.com, bouton ✏️). C'est tout :
 les applis déjà installées verront la nouvelle au prochain rafraîchissement, sans mise à jour.
 
+## APK à télécharger
+
+Chaque appli Android a une Release GitHub dont le tag est son `id` ; l'APK y garde toujours le même lien,
+repris dans `android.apkUrl` de `apps.json` et sur la page vitrine (bouton « Télécharger l'APK ») :
+`https://github.com/Cocosdnc/neocode-apps/releases/download/<id>/<Nom>.apk`.
+
+Nouvelle version : compiler l'APK release **signé avec la clé habituelle de l'appli** (sinon il ne s'installe
+pas par-dessus l'ancien), puis :
+
+```powershell
+.\scripts\publier-apk.ps1 -Id sillon -Nom Sillon -Apk ..\Sillon\app\build\outputs\apk\release\app-release.apk -Version 1.1
+```
+
+| Appli | Tag | Build | Clé de signature |
+| --- | --- | --- | --- |
+| ScrollSavior | `scrollsavior` | `ScrollSaver\build.cmd android` → `ScrollSavior.apk`, **puis re-signer** (voir dessous) | `ScrollSaver\keystore\upload-keystore.jks` |
+| FunnyAlarm | `funnyalarm` | dossier `Funny Alarm\FunnyAlarm` → `FunnyAlarm-<version>.apk` | celle du projet FunnyAlarm |
+| Sillon | `sillon` | `Sillon\build.cmd release` | `Sillon\keystore\` + `keystore.properties` |
+| YouMotion | `youmotion` | `YouMotion\build.cmd release` | `YouMotion\keystore\` + `keystore.properties` |
+
+`build.cmd android` signe ScrollSavior avec la clé debug du modèle Expo, publique : ne jamais publier cet APK tel quel.
+Le re-signer avec la clé d'envoi (mots de passe dans `ScrollSaver\keystore\upload.properties`) :
+
+```powershell
+apksigner sign --ks ..\ScrollSaver\keystore\upload-keystore.jks --ks-key-alias <keyAlias> --out ScrollSavior-site.apk ..\ScrollSaver\ScrollSavior.apk
+```
+
+YouMotion n'est pas dans `apps.json` (donc pas proposée dans les autres applis) : elle n'est que sur la page vitrine.
+
 ## Vérifier en local
 
 ```bash
